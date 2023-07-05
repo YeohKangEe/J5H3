@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>J5H3</title>
+    </head>
+    <body>
+        <center>
+
+            <h1>Delicious Restaurant</h1>
+
+            <p>Place Your Order</p>
+
+            <table border="1" width="500px">
+                <tr>
+                    <td align="center">
+                        <button onclick="javascript:calculate_nugget(1)">ONE</button>
+                        <br>
+                        <button onclick="javascript:calculate_nugget(2)">TWO</button>
+                        <br>
+                        <button onclick="javascript:calculate_nugget(3)">THREE</button>
+                        <br>
+                        <button onclick="javascript:calculate_nugget(0)">Clear</button>
+                    </td>
+                    <td align="center">
+                        <img src="nuggets.png" width="172">
+                        <br>
+                        $8.50
+                    </td>
+                    <td>
+                        <p id="nugget_quantity">quantity <br>0</p>
+                        
+                        <p id="nugget_Subtotal">Subtotal <br>0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button onclick="javascript:calculate_burger(1)">ONE</button>
+                        <br>
+                        <button onclick="javascript:calculate_burger(2)">TWO</button>
+                        <br>
+                        <button onclick="javascript:calculate_burger(3)">THREE</button>
+                        <br>
+                        <button onclick="javascript:calculate_burger(0)">Clear</button>
+                     </td>
+                     <td align="center">
+                        <img src="big-mac.png" width="172">
+                        <br>
+                        $6.00
+                    </td> 
+                    <td>
+                        <p id="burger_quantity">quantity <br>0</p>
+                        
+                        <p id="burger_Subtotal">Subtotal <br>0</p>
+                    </td>     
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button onclick="javascript:calculate_coke(1)">ONE</button>
+                        <br>
+                        <button onclick="javascript:calculate_coke(2)">TWO</button>
+                        <br>
+                        <button onclick="javascript:calculate_coke(3)">THREE</button>
+                        <br>
+                        <button onclick="javascript:calculate_coke(0)">Clear</button>
+                    </td>
+                    <td align="center">
+                        <img src="coke.png" width="172">
+                        <br>
+                        $2.00
+                    </td>
+                    <td>
+                        <p id="coke_quantity">quantity <br>0</p>
+                        
+                        <p id="coke_Subtotal">Subtotal <br>0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td colspan="2" align="right"><p id="total">0</p></td>
+                </tr>
+            </table>
+        </center>
+        <script>
+            const  meal = {          
+                Nugget: 8.5,
+                Burger: 6.00,
+                Coke: 2
+            };
+            var nugget_Subtotal = 0;
+            var burger_Subtotal = 0;
+            var coke_Subtotal = 0;                  
+
+            function calculate_nugget(quantity) {
+
+                document.getElementById('nugget_quantity').innerHTML="quantity<br>"+quantity;
+                document.getElementById('nugget_Subtotal').innerHTML="Subtotal<br>"+quantity*meal.Nugget; 
+                
+                nugget_Subtotal = quantity*meal.Nugget;
+                calculate_total();
+            }
+
+            function calculate_burger(quantity) {
+
+                document.getElementById('burger_quantity').innerHTML="quantity<br>"+quantity;
+                document.getElementById('burger_Subtotal').innerHTML="Subtotal<br>"+quantity*meal.Burger;   
+                
+                burger_Subtotal = quantity*meal.Burger;
+                calculate_total();
+            }
+
+            function calculate_coke(quantity) {
+
+                document.getElementById('coke_quantity').innerHTML="quantity<br>"+quantity;
+                document.getElementById('coke_Subtotal').innerHTML="Subtotal<br>"+quantity*meal.Coke; 
+                
+                coke_Subtotal = quantity*meal.Coke;
+                calculate_total();
+            }
+
+            function calculate_total(){
+                document.getElementById('total').innerHTML=nugget_Subtotal + burger_Subtotal + coke_Subtotal;                
+            }
+    </script>
+    </body>
+</html>
